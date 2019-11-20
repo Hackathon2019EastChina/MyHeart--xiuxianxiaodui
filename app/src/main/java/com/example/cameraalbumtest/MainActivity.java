@@ -9,43 +9,100 @@ import okhttp3.Response;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private String mBaseUrl="http://localhost:8080/okhttp/";
+    private EditText acc_etext;
+    private EditText psd_etext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        acc_etext=findViewById(R.id.acc_etext);
+        psd_etext=findViewById(R.id.psd_etext);
+        Button login=findViewById(R.id.login_btn);
+        Button register=findViewById(R.id.register_btn);
+
+        register.setOnClickListener(this);
+        login.setOnClickListener(this);
     }
-    public void doGet(View view){
-        //1.获取OkHttpClient对象
-        OkHttpClient okHttpClient=new OkHttpClient();
-        //2.构造Request
-        Request.Builder builder=new Request.Builder();
-        final Request request=builder.get().url(mBaseUrl+"login?username=jessie&password=1234").build();
-        //3.将Request封装为Call
-        Call call=okHttpClient.newCall(request);
-        //4.执行call
-        call.enqueue(new Callback() {
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.login_btn:
+                String loginAddress="http://henuajy.zicp.vip/LoLBoxServer_war_exploded/LoginServlet";
+                String loginAccount = acc_etext.getText().toString();
+                String loginPassword = psd_etext.getText().toString();
+                loginWithOkHttp(loginAddress,loginAccount,loginPassword);
+                break;
+            case R.id.register_btn:
+                String registerAddress="http://henuajy.zicp.vip/LoLBoxServer_war_exploded/RegisterServlet";
+                String registerAccount = acc_etext.getText().toString();
+                String registerPassword = psd_etext.getText().toString();
+                registerWithOkHttp(registerAddress,registerAccount,registerPassword);
+                break;
+            default:
+                break;
+        }
+    }
+
+    //实现登录
+    public void loginWithOkHttp(String address,String account,String password){
+        HttpUtil.loginWithOkHttp(address,account,password, new Callback() {
             @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                L.e("onFailure: "+e.getMessage());
-                e.printStackTrace();
+            public void onFailure(Call call, IOException e) {
+                //在这里对异常情况进行处理
+            }
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                //得到服务器返回的具体内容
+                final String responseData = response.body().string();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (responseData.equals("true")){
+                            Toast.makeText(MainActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(MainActivity.this,"登录失败",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+    //实现注册
+    public void registerWithOkHttp(String address,String account,String password) {
+        HttpUtil.registerWithOkHttp(address, account, password, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                //在这里对异常情况进行处理
             }
 
             @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                L.e("onResponse: ");
-                final String res = response.body().string();
-                L.e(res);
+            public void onResponse(Call call, Response response) throws IOException {
+                final String responseData = response.body().string();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (responseData.equals("true")) {
+                            Toast.makeText(MainActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(MainActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
     }

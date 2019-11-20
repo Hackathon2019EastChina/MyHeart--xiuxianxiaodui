@@ -5,41 +5,41 @@
 
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/login_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:onClick="doGet"
+
         android:text="登录"
         />
 
     <Button
-        android:id="@+id/register"
+        android:id="@+id/register_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_below="@+id/login"
+        android:layout_below="@+id/login_btn"
         android:layout_marginTop="3dp"
         android:text="注册" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/psd_etext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="密码"
-        android:layout_above="@+id/login"
+        android:layout_above="@+id/login_btn"
         android:gravity="center"
         android:layout_marginBottom="30dp"
         android:textColorHint="#03A9F4"
         />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/acc_etext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="用户名"
         android:gravity="center"
-        android:layout_above="@+id/password"
+        android:layout_above="@+id/psd_etext"
         android:layout_marginBottom="5dp"
         android:textColorHint="#03A9F4"
         />
