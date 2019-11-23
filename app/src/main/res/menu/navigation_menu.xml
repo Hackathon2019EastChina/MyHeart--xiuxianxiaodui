@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/chatting"
+        android:icon="@drawable/chatting"
+        android:title="Chatting"
+        android:orderInCategory="3"/>
+    <item
+        android:id="@+id/articles"
+        android:icon="@drawable/articles"
+        android:title="Articles"
+        android:orderInCategory="2"/>
+    <item
+        android:id="@+id/diaries"
+        android:icon="@drawable/diaries"
+        android:title="diaries"
+        android:orderInCategory="1"/>
+</menu>

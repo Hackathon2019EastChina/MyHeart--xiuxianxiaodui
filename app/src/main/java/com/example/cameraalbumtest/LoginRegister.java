@@ -3,22 +3,17 @@ package com.example.cameraalbumtest;
 import androidx.appcompat.app.AppCompatActivity;
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import okhttp3.Response;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginRegister extends AppCompatActivity implements View.OnClickListener {
 
     private EditText acc_etext;
     private EditText psd_etext;
@@ -26,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.register_login);
 
         acc_etext=findViewById(R.id.acc_etext);
         psd_etext=findViewById(R.id.psd_etext);
@@ -72,9 +67,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void run() {
                         if (responseData.equals("true")){
-                            Toast.makeText(MainActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginRegister.this,"登录成功",Toast.LENGTH_SHORT).show();
                         }else{
-                            Toast.makeText(MainActivity.this,"登录失败",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginRegister.this,"登录失败",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -97,9 +92,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void run() {
                         if (responseData.equals("true")) {
-                            Toast.makeText(MainActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginRegister.this, "注册成功", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(MainActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginRegister.this, "注册失败", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
