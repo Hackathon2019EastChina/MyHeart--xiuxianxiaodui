@@ -2,16 +2,23 @@ package com.example.cameraalbumtest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
 
-public class WebViewActivity extends AppCompatActivity {
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+public class WebViewActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
+
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,5 +46,29 @@ public class WebViewActivity extends AppCompatActivity {
             }
         });
         mywebview.loadUrl("https://mp.weixin.qq.com/mp/homepage?__biz=MzA5NDYzNTE3Ng==&hid=4&sn=c4698df3c5b4f3887c71451daa4c148d&scene=18#wechat_redirect");
+
+        bottomNavigationView=(BottomNavigationView)findViewById(R.id.bottomNavigation);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item){
+        int id=item.getItemId();
+        switch(id){
+            case R.id.diaries:
+                Intent intent1=new Intent(WebViewActivity.this,MoodDiary.class);
+                startActivity(intent1);
+                break;
+            case R.id.articles:
+
+                break;
+            case R.id.chatting:
+                Intent intent3=new Intent(WebViewActivity.this,Chatting.class);
+                startActivity(intent3);
+                break;
+            default:
+        }
+        return true;
     }
 }

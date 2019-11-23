@@ -5,6 +5,7 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -68,6 +69,8 @@ public class LoginRegister extends AppCompatActivity implements View.OnClickList
                     public void run() {
                         if (responseData.equals("true")){
                             Toast.makeText(LoginRegister.this,"登录成功",Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(LoginRegister.this,MoodDiary.class);
+                            startActivity(intent);
                         }else{
                             Toast.makeText(LoginRegister.this,"登录失败",Toast.LENGTH_SHORT).show();
                         }

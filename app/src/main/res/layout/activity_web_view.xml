@@ -10,4 +10,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bottomNavigation"
+            android:background="?android:windowBackground"
+            android:layout_gravity="bottom"
+            app:menu="@menu/navigation_menu"
+            android:theme="@style/BottomNavigationTheme"
+            app:itemBackground="@color/colorPrimary">
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

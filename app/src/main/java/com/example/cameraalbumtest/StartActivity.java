@@ -21,7 +21,7 @@ public class StartActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(StartActivity.this,MoodDiary.class);
+                Intent intent=new Intent(StartActivity.this,LoginRegister.class);
                 startActivity(intent);
                 finish();
             }
