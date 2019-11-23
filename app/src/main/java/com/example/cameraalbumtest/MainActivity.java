@@ -41,13 +41,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.login_btn:
-                String loginAddress="http://172.25.186.58:8080/WebClient2_war_exploded/LoginServlet";
+                String loginAddress="http://10.203.161.36:8080/WebClient3/LoginServlet";
                 String loginAccount = acc_etext.getText().toString();
                 String loginPassword = psd_etext.getText().toString();
                 loginWithOkHttp(loginAddress,loginAccount,loginPassword);
                 break;
             case R.id.register_btn:
-                String registerAddress="http://172.25.186.58:8080/WebClient2_war_exploded/RegisterServlet";
+                String registerAddress="http://10.203.161.36:8080/WebClient3/RegisterServlet";
                 String registerAccount = acc_etext.getText().toString();
                 String registerPassword = psd_etext.getText().toString();
                 registerWithOkHttp(registerAddress,registerAccount,registerPassword);
