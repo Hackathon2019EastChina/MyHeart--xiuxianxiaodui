@@ -1,6 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.example.cameraalbumtest"
@@ -27,4 +31,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation "com.squareup.okhttp3:okhttp:4.2.2"
     implementation "com.android.support:design:29.0.0"
+    implementation 'com.android.support:recyclerview-v7:29.0.2'
+    implementation 'com.android.support:support-v4:29.0.2'
 }

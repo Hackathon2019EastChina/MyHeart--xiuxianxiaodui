@@ -26,7 +26,7 @@ public class BottomNav extends AppCompatActivity {
         bottomNavigationView=(BottomNavigationView)findViewById(R.id.bottomNavigation);
         //bottomNavigationView.setOnNavigationItemSelectedListener(this);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
-        getSupportFragmentManager().beginTransaction().replace(R.id.content,new MoodDiaries()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.content,new WebViewActivity()).commit();
     }
     private BottomNavigationView.OnNavigationItemSelectedListener navListener=
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -36,14 +36,16 @@ public class BottomNav extends AppCompatActivity {
                    switch (menuItem.getItemId()){
                        case R.id.diaries:
                            selectedFragment=new MoodDiaries();
+                           getSupportFragmentManager().beginTransaction().replace(R.id.content,selectedFragment).commit();
                            break;
                        case R.id.articles:
                            selectedFragment=new WebViewActivity();
+                           getSupportFragmentManager().beginTransaction().replace(R.id.content,selectedFragment).commit();
                            break;
                        case R.id.chatting:
-                           selectedFragment=new Chatting();
+                           Intent intent=new Intent(BottomNav.this,MainActivity.class);
+                           startActivity(intent);
                    }
-                    getSupportFragmentManager().beginTransaction().replace(R.id.content,selectedFragment).commit();
                     return true;
                 }
             };

@@ -37,13 +37,13 @@ public class LoginRegister extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.login_btn:
-                String loginAddress="http://10.203.210.75:8080/WebClient3/LoginServlet";
+                String loginAddress="http://42.159.90.134:8080/WebClient3/LoginServlet";
                 String loginAccount = acc_etext.getText().toString();
                 String loginPassword = psd_etext.getText().toString();
                 loginWithOkHttp(loginAddress,loginAccount,loginPassword);
                 break;
             case R.id.register_btn:
-                String registerAddress="http://10.203.210.75:8080/WebClient3/RegisterServlet";
+                String registerAddress="http://42.159.90.134:8080/WebClient3/RegisterServlet";
                 String registerAccount = acc_etext.getText().toString();
                 String registerPassword = psd_etext.getText().toString();
                 registerWithOkHttp(registerAddress,registerAccount,registerPassword);

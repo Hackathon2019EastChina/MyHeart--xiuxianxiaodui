@@ -9,10 +9,10 @@
         android:id="@+id/articles"
         android:icon="@drawable/articles"
         android:title="Articles"
-        android:orderInCategory="2"/>
+        android:orderInCategory="1"/>
     <item
         android:id="@+id/diaries"
         android:icon="@drawable/diaries"
         android:title="Diaries"
-        android:orderInCategory="1"/>
+        android:orderInCategory="2"/>
 </menu>

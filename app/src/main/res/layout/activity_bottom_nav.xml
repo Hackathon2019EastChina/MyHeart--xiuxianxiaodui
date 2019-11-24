@@ -22,6 +22,6 @@
         android:layout_alignParentBottom="true"
         app:menu="@menu/navigation_menu"
         android:theme="@style/BottomNavigationTheme"
-        app:itemBackground="@color/colorPrimary">
+        app:itemBackground="@color/tan">
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 </RelativeLayout>

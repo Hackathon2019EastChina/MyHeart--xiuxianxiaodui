@@ -9,7 +9,7 @@
     </style>
     <style name="SplashTheme" parent="AppTheme">
         <item name="android:windowIsTranslucent">false</item>
-        <item name="android:background">@drawable/bg</item>
+        <item name="android:background">@drawable/start</item>
         <item name="android:windowFullscreen">true</item>
     </style>
     <style name="BottomNavigationTheme" parent="Widget.Design.BottomNavigationView">
