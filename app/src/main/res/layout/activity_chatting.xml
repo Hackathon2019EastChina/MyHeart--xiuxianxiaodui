@@ -1,31 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Chatting">
-
+    android:background="@android:color/holo_red_light">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/text_chatting"
-        android:text="chatting">
-    </TextView>
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/bottomNavigation"
-            android:background="?android:windowBackground"
-            android:layout_gravity="bottom"
-            app:menu="@menu/navigation_menu"
-            android:theme="@style/BottomNavigationTheme"
-            app:itemBackground="@color/colorPrimary">
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-</LinearLayout>
+        android:textSize="30sp"
+        android:text="chatting fragment"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>

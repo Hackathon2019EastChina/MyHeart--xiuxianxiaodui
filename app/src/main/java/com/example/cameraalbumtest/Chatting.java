@@ -1,45 +1,27 @@
 package com.example.cameraalbumtest;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Chatting extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
+public class Chatting extends Fragment {
 
-    BottomNavigationView bottomNavigationView;
-    TextView textView;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chatting);
-
-        bottomNavigationView=(BottomNavigationView)findViewById(R.id.bottomNavigation);
-        bottomNavigationView.setOnNavigationItemSelectedListener(this);
-        textView=(TextView)findViewById(R.id.text_chatting);
-    }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item){
-        int id=item.getItemId();
-        switch(id){
-            case R.id.diaries:
-                Intent intent1=new Intent(Chatting.this,MoodDiary.class);
-                startActivity(intent1);
-                break;
-            case R.id.articles:
-                Intent intent2=new Intent(Chatting.this,WebViewActivity.class);
-                startActivity(intent2);
-                break;
-            case R.id.chatting:
-                textView.setText(item.getTitle());
-                break;
-            default:
-        }
-        return true;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.activity_chatting, container, false);
     }
+
 }

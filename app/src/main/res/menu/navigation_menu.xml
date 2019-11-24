@@ -13,6 +13,6 @@
     <item
         android:id="@+id/diaries"
         android:icon="@drawable/diaries"
-        android:title="diaries"
+        android:title="Diaries"
         android:orderInCategory="1"/>
 </menu>
